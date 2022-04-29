@@ -774,6 +774,7 @@ ul {
   letter-spacing: 0.01em;
   color: rgba(117, 117, 117, 0.5);
   cursor: pointer;
+  outline: none;
   
   padding: 12px;
   padding-left: 42px;
@@ -806,15 +807,16 @@ ul {
   letter-spacing: 0.01em;
   color: #757575;
   cursor: pointer;
-
+  outline: none;
+  
   transition: border-color 250ms var(--animation-time);
   padding: 12px 16px;
 }
-.form-textarea:hover {
+.form-textarea:hover,
+.form-textarea:focus {
   border-color: var(--accent-color);
 }
 .checkbox {
-  text-align: center;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.2;
@@ -825,16 +827,25 @@ ul {
  appearance: none;
  position: absolute;
 }
- .checkbox-svg {
-  display: inline-block;
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkbox-label svg {
   width: 16px;
   height: 15px;
-  background-color: var(--title-text-color);
+  border: 2px solid var(--title-text-color);
+  border-radius: 4px;
+  margin-right: 7px;
 }
- .checkbox-label:checked + .checkbox-svg { 
+.checkbox-icon {
+  fill: transparent;
+}
+.checkbox-input:checked + .checkbox-label svg {
   background-color: var(--accent-color);
-} 
-
+  border: none;
+}
 .excerpt {
   color: var(--accent-color);
   text-decoration: underline;
